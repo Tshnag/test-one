@@ -1,11 +1,14 @@
+body{
+    background-color: antiquewhite;
+}
 .App{
     background-color: antiquewhite;
     width: 100%;
-    height: 100vh;
+    height: fit-content;
 }
 .app-video-align{
     background-color: antiquewhite;
     width: 100%;
     display: flex;
-    flex-wrap: nowrap;
+    flex-wrap:wrap;
 }

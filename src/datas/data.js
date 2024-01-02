@@ -1,5 +1,6 @@
-const videoArr = [{
-    id:1,
+let videoArr = [
+  {
+    id: 1,
     title: "React JS Tutorial.",
     channel: "Coding",
     views: "200k",
@@ -7,7 +8,7 @@ const videoArr = [{
     verified: true,
   },
   {
-    id:2,
+    id: 2,
     title: "Node JS Tutorial.",
     channel: "Programming",
     views: "900k",
@@ -15,12 +16,12 @@ const videoArr = [{
     verified: false,
   },
   {
-    id:3,
+    id: 3,
     title: "Aquarium Visit.",
     channel: "Coding",
     views: "1M",
     time: "2 month ago",
     verified: true,
   }
-  ];
+];
 export default videoArr;

@@ -1,28 +1,41 @@
+import { useState } from "react";
+import videoDb from "./datas/data.js";
+import AddVideo from "./components/AddVideo.js";
+import VideoList from "./components/VideoList.js";
 import "./App.css";
-import PlayButton from "./components/PlayButton.js";
-import Video from './components/Video';
-import videoArr from "./datas/data.js";
+
 
 
 function App() {
+  console.log('Render App')
+  const [videos, setVideos] = useState(videoDb)
+
+  function addVideo(video){
+    setVideos([...videos,
+      {...video, id: videos.length+1}
+    ])
+  }
+
   return (
-    <div className='App' onClick={()=>console.log("App")}>
-      <div className="app-video-align" >
+    <div className='App' >  {/* bubbling effect---> onClick={() => console.log("App")} */}
+     <AddVideo addVideo={addVideo}></AddVideo>
+     <VideoList videos={videos}></VideoList>
+     {/* <div>
+        <button onClick={(e) => {
+          e.stopPropagation();
 
-        {
-          videoArr.map(video => <Video  //it takes each object from array(videoArr) in video element,
-            title={video.title}
-            channel={video.channel}
-            views={video.views}
-            time={video.time}
-            verified={video.verified}
-          >
+          // console.log('inside Add-video button')
+          // setVideos([...videos,{
+          //   id: videos.length+1,
+          //   title: "Aquarium Visit.",
+          //   channel: "Coding",
+          //   views: "1M",
+          //   time: "2 month ago",
+          //   verified: true,
+          // }]);
 
-            <PlayButton onPlay={() => console.log("Playing..",video.title)} onPause={() => console.log("Paused",video.title)} >{video.title}</PlayButton>
-
-          </Video>)
-        }
-      </div>
+        }}> Add Video</button>
+      </div> */}
 
       {/* <PlayButton  message='paused-song' onClick={()=> alert("Paused")}>Pause</PlayButton> */}
 
